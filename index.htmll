@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lanka Tea | Pure Ceylon Heritage In Every Sip</title>
+  
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary: #c5a059; /* Gold/Tea color */
+      --secondary: #1a3c34; /* Deep Tea Green */
+      --accent: #e9f0ee;
+      --bg: #0b0d0c;
+      --card: #151917;
+      --white: #ffffff;
+      --gray: #a0a7a3;
+      --border: #242b28;
+      --radius: 20px;
+      --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    .container { width: 90%; max-width: 1200px; margin: auto; }
+    section { padding: 100px 0; }
+
+    /* BUTTONS */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 16px 32px;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .btn-gold { background: var(--primary); color: #000; }
+    .btn-gold:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(197, 160, 89, 0.3); }
+
+    .btn-outline { border: 1px solid var(--primary); color: var(--primary); }
+    .btn-outline:hover { background: var(--primary); color: #000; }
+
+    /* HEADER */
+    header {
+      position: fixed;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(11, 13, 12, 0.8);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .navbar { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; }
+    .logo { font-size: 1.6rem; font-weight: 800; letter-spacing: 1px; }
+    .logo span { color: var(--primary); }
+
+    .nav-links { display: flex; gap: 35px; }
+    .nav-links a { color: var(--gray); transition: var(--transition); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
+    .nav-links a:hover { color: var(--primary); }
+
+    /* HERO */
+    .hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1544787210-2283944749e7?auto=format&fit=crop&q=80&w=1920') no-repeat center/cover;
+    }
+
+    .hero-content { max-width: 700px; }
+    .hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1.1; margin-bottom: 25px; }
+    .hero h1 span { color: var(--primary); }
+    .hero p { font-size: 1.2rem; color: var(--gray); margin-bottom: 40px; }
+
+    /* FEATURES/STATS */
+    .hero-stats { display: flex; gap: 40px; margin-top: 50px; }
+    .stat-item h3 { font-size: 2rem; color: var(--primary); }
+
+    /* COLLECTIONS (Replaces Services) */
+    .section-title { text-align: center; margin-bottom: 70px; }
+    .section-title h2 { font-size: 2.5rem; margin-bottom: 15px; }
+    
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+    
+    .card {
+      background: var(--card);
+      padding: 40px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card:hover { border-color: var(--primary); transform: translateY(-10px); }
+    .card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 20px; display: block; }
+
+    /* FAQ - Custom Accordion */
+    .faq-item { background: var(--card); margin-bottom: 15px; border-radius: 12px; border: 1px solid var(--border); }
+    .faq-btn { width: 100%; padding: 20px; background: none; border: none; color: white; text-align: left; font-size: 1.1rem; cursor: pointer; display: flex; justify-content: space-between; }
+    .faq-content { padding: 0 20px 20px; color: var(--gray); display: none; }
+
+    /* FOOTER */
+    footer { padding: 50px 0; border-top: 1px solid var(--border); text-align: center; color: var(--gray); }
+
+    /* MOBILE NAV */
+    .menu-toggle { display: none; cursor: pointer; font-size: 1.5rem; }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .menu-toggle { display: block; }
+      .hero { text-align: center; }
+      .hero-stats { justify-content: center; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container navbar">
+    <a href="#" class="logo">LANKA<span>TEA</span></a>
+    <nav class="nav-links">
+      <a href="#collections">Collections</a>
+      <a href="#heritage">Heritage</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="menu-toggle">☰</div>
+  </div>
+</header>
+
+<main>
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content" data-aos="fade-up">
+        <h1>Experience the <span>Gold Standard</span> of Ceylon Tea</h1>
+        <p>Hand-picked from the misty highlands of Sri Lanka, bringing authentic aroma and unparalleled taste to your cup.</p>
+        
+        <div class="hero-buttons">
+          <a href="#collections" class="btn btn-gold">Shop Collection</a>
+          <a href="#contact" class="btn btn-outline" style="margin-left:15px;">Locate Store</a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat-item">
+            <h3>100%</h3>
+            <p>Organic</p>
+          </div>
+          <div class="stat-item">
+            <h3>50+</h3>
+            <p>Blends</p>
+          </div>
+          <div class="stat-item">
+            <h3>1867</h3>
+            <p>Heritage</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COLLECTIONS SECTION -->
+  <section id="collections">
+    <div class="container">
+      <div class="section-title" data-aos="fade-up">
+        <h2>Our Signature Blends</h2>
+        <p>From bold breakfast brews to calming herbal infusions.</p>
+      </div>
+
+      <div class="grid">
+        <div class="card" data-aos="zoom-in" data-aos-delay="100">
+          <i>🍃</i>
+          <h3>Royal Black Tea</h3>
+          <p>Full-bodied and robust, the classic Ceylon experience for your morning ritual.</p>
+        </div>
+        <div class="card" data-aos="zoom-in" data-aos-delay="200">
+          <i>🌿</i>
+          <h3>Silver Needle Green</h3>
+          <p>Delicate, antioxidant-rich leaves minimally processed for maximum purity.</p>
+        </div>
+        <div class="card" data-aos="zoom-in" data-aos-delay="300">
+          <i>🌼</i>
+          <h3>Highland Chamomile</h3>
+          <p>Soothe your senses with our caffeine-free floral infusion from the Nuwara Eliya peaks.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section style="background: var(--secondary);">
+    <div class="container" style="text-align: center;" data-aos="flip-up">
+      <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Taste the Heritage</h2>
+      <p style="margin-bottom: 30px; opacity: 0.8;">Join our Tea Club for exclusive access to limited-edition harvests.</p>
+      <a href="#" class="btn btn-gold">Subscribe Now</a>
+    </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section id="faq">
+    <div class="container">
+      <div class="section-title">
+        <h2>Brewing Wisdom</h2>
+      </div>
+      <div class="faq-container" style="max-width: 800px; margin: auto;">
+        <div class="faq-item">
+          <button class="faq-btn">How do I brew the perfect cup? <span>+</span></button>
+          <div class="faq-content">For Black tea, use boiling water ($100^{\circ}C$). For Green tea, let the water cool to $80^{\circ}C$ to avoid bitterness.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-btn">Is Lanka Tea sustainably sourced? <span>+</span></button>
+          <div class="faq-content">Yes, we work directly with Fair Trade certified estates to ensure ethical wages and eco-friendly farming.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>© 2026 Lanka Tea Co. Crafted for Connoisseurs.</p>
+</footer>
+
+<!-- Scripts -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  // Initialize Animations
+  AOS.init({
+    duration: 1000,
+    once: true
+  });
+
+  // Simple Accordion Logic
+  document.querySelectorAll('.faq-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const content = btn.nextElementSibling;
+      const isOpen = content.style.display === 'block';
+      
+      document.querySelectorAll('.faq-content').forEach(c => c.style.display = 'none');
+      content.style.display = isOpen ? 'none' : 'block';
+    });
+  });
+</script>
+
+</body>
+</html>
